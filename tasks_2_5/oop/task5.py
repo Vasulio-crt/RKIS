@@ -1,20 +1,21 @@
 class KgToPounds:
     def __init__(self, kg=0):
-        self.kg = kg
+        self.__kg = kg
 
-    def to_pounds(self):
-        self.pound = self.kg * 2.205
-        print("Pound:", self.pound)
+    @property
+    def pound(self):
+        return self.__kg * 2.205
     
-    def set_kg(self, kg):
-        self.kg = kg
+    @property
+    def kg(self):
+        return self.__kg
     
-    def get_kg(self):
-        print("KG:", self.kg)
+    @kg.setter
+    def kg(self, num):
+        self.__kg = num
 
-# Я так и не понял что надо реализовать
 
 cls = KgToPounds(20)
-cls.to_pounds()
-cls.set_kg(10)
-cls.get_kg()
+print(cls.kg)
+cls.kg = 100
+print("pound:", cls.pound, "kg:", cls.kg)
